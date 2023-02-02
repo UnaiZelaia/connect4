@@ -1,4 +1,2 @@
-import functions
 
-functions.printBrach()
 
