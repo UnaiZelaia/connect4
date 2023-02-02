@@ -1,2 +1,4 @@
-def printBrach():
-    print("This is only visible in the Unai branch.")
+import functions
+
+functions.printBrach()
+
