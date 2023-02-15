@@ -1,0 +1,4 @@
+This is a link to the documentation for the python project. We haven't export to pdf cause we have to make some small changes.
+Sorry, we didn't have enough time. We will upload the pdf when it's done.
+
+https://docs.google.com/document/d/1t1zaV0G9aLzOgGv3CzLRkY4U_Wl2DbZqNxc2ZbH0pgg/edit?usp=sharing
