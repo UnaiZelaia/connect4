@@ -91,7 +91,10 @@ def selectColPlayer2():
     # This function behaves the same as the one for player 1 but for player2
     c = 1
     while c == 1:
-        col = int(input("Player2: Select the column to drop the token: "))
+        try:
+            col = int(input("Player2: Select the column to drop the token: "))
+        except:
+            continue
         if 1 <= col <= 5:
             if cols[col - 1][4] == 0:
                 return int(col)

@@ -100,6 +100,3 @@ def hangmangame(playername):
     print("Thanks for playing " + playername + " hope to see you here again!!!")
     print(" ")
 
-name()
-
-hangmangame()
