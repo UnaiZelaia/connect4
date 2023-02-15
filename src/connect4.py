@@ -415,8 +415,7 @@ def checkEndGame():
                 fullCols += 1
                 count = 0
 
-
-    if fullCols == 5:
+    if fullCols == 5:  # If all the columns are full, the game ends.
         print("There are no more cells left. It's a draw.")
         return 0
     else:
