@@ -9,7 +9,7 @@ animals = ["ferret", "cockatoo", "hedgehog", "raccoon", "vulture", "ostrich", "p
 def name():
 
     playername = input("What's your name? ")
-    hangmangame(playername)
+    return 0
 
 def hangmangame(playername):
 
@@ -54,7 +54,7 @@ def hangmangame(playername):
         if failed == 0:
             print(" ")
             print(" ")
-            print("Congratulations " + playername + " :) you have win!!!")
+            print("Congratulations " + str(playername) + " :) you have win!!!")
             print(" ")
 
             print("The word is: ", word)
@@ -97,6 +97,8 @@ def hangmangame(playername):
                 print("You Loose :(")
                 print(" ")
 
-    print("Thanks for playing " + playername + " hope to see you here again!!!")
+
+    print("Thanks for playing " + str(playername) + " hope to see you here again!!!")
     print(" ")
+
 

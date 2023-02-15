@@ -15,11 +15,10 @@ while c == 1:
 
     opt = int(input("\nSelect the option: "))
 
-
     if opt == 1:
         connect4.init()
     elif opt == 2:
-        name = hangman.name()
+        name = str(hangman.name())
         hangman.hangmangame(name)
     elif opt == 3:
         quizFinal.quiz()
