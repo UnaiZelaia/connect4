@@ -1,3 +1,0 @@
-import guesstheword
-
-guesstheword.menu()
