@@ -1,29 +1,41 @@
 import time;
 loading=["Your game is loading...",3,2,1]
 count=0
-
 answer1="mercury"
 answer2="1,6"
 answer3="amazonas"
+answer4="scotland"
+answer5="jupiter"
+
+
+
 def menu():
-  print("*================================*")
-  print("Welcome to GuesstheWord game")
-
-  for n in loading:
-     print(n)
-     time.sleep(0.7)
 
 
-  firstquestion()
+    print("*================================*")
+    print("Welcome to GuesstheWord game")
+
+    for n in loading:
+        print(n)
+        time.sleep(0.7)
+
+
+    firstquestion()
+
+    finish()
+
+
 
 
 def firstquestion():
+    
+
 
     first = input("What is the closest planet to the earth ?\n")
 
     if first == answer1:
         print("The answer is correct\n")
-        ++count
+        count + 1
         secondquestion()
     else:
         print("Hint:Old thermometers had it\n ")
@@ -32,7 +44,7 @@ def firstquestion():
     if (first == answer1):
         print("The answer is correct\n")
 
-        ++count
+        count + 1
         secondquestion()
     else:
         print("Hint:Starts with the letter M\n")
@@ -40,11 +52,13 @@ def firstquestion():
 
     if (first == answer1):
         print("The answer is correct\n")
-        ++count
+        count + 1
         secondquestion()
 
     else:
         secondquestion()
+
+
 
 
 
@@ -57,27 +71,29 @@ def secondquestion():
 
     if first == answer2:
         print("The answer is correct")
-        ++count
+        count + 1
         thirthquestion()
     else:
-        print("Bigger than 1 ")
+        print("Hint:Bigger than 1 ")
         first = input("How many kilometres is a mile?(Write it with a coma)\n")
 
     if (first == answer2):
         print("The answer is correct")
-        ++count
+        count + 1
         thirthquestion()
     else:
-        print("Smaller than 2")
+        print("Hint:Smaller than 2")
         first = input("How many kilometres is a mile?(Write it with a coma)\n")
 
     if (first == answer2):
         print("The answer is correct")
-        ++count
+        count + 1
         thirthquestion()
 
     else:
         thirthquestion()
+
+
 
 
 
@@ -91,27 +107,29 @@ def thirthquestion():
 
     if first == answer3:
         print("The answer is correct\n")
-        ++count
+        count + 1
         fourthquestion()
     else:
-        print("It is considered the lung of the planet \n")
+        print("Hint:It is considered the lung of the planet \n")
         first = input("Which is the longest river in the world?\n")
 
     if (first == answer3):
         print("The answer is correct\n")
-        ++count
+        count + 1
         fourthquestion()
     else:
-        print("It is in America")
+        print("Hint:It is in America")
         first = input("Which is the longest river in the world?\n")
 
     if (first == answer3):
         print("The answer is correct\n")
-        ++count
+        count + 1
         fourthquestion()
 
     else:
         fourthquestion()
+
+
 
 
 
@@ -121,31 +139,70 @@ def fourthquestion():
 
     first = input("What country joined England to form the United Kingdom in 1707?\n")
 
-    if first == answer3:
+    if first == answer4:
         print("The answer is correct\n")
-        ++count
-        finish()
+        count + 1
+        fithquention()
     else:
-        print("It is considered the lung of the planet \n")
-        first = input("Which is the longest river in the world?\n")
+        print("Hint:Lake ness is in it \n")
+        first = input("What country joined England to form the United Kingdom in 1707?\n")
 
-    if (first == answer3):
+    if (first == answer4):
         print("The answer is correct\n")
-        ++count
-        finish()
+        count + 1
+        fithquention()
     else:
-        print("It is in America")
-        first = input("Which is the longest river in the world?\n")
+        print("Hint:Edinburgh is the capital city")
+        first = input("What country joined England to form the United Kingdom in 1707?\n")
         finish()
 
-    if (first == answer3):
+    if (first == answer4):
         print("The answer is correct\n")
-        ++count
-        finish()
+        count + 1
+        fithquention()
 
     else:
 
-        finish()
+        fithquention()
+
+
+
+
+
+
+def fithquention():
+
+
+        print("Last one,go hard!")
+
+        first = input("What is the biggest planet on the milky way?\n")
+
+        if first == answer5:
+            print("The answer is correct\n")
+            count + 1
+            finish()
+
+        else:
+            print("It is 11,2 time bigger than the earth \n")
+            first = input("What is the biggest planet on the milky way?\n")
+
+        if (first == answer5):
+            print("The answer is correct\n")
+            count + 1
+            finish()
+        else:
+            print("It is made by gas")
+            first = input("What is the biggest planet on the milky way?\n")
+            finish()
+
+        if (first == answer5):
+            print("The answer is correct\n")
+            count + 1
+            finish()
+
+        else:
+
+            finish()
 
 
 
@@ -153,7 +210,13 @@ def fourthquestion():
 
 
 def finish():
+    print("Congratulations you have finished the game!!!")
     print(count)
+
+
+
+
+
 
 
 
