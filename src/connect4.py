@@ -439,7 +439,7 @@ def checkEndGame():
                 return 1
 
 def writeToFile(winner):
-    file = open("../files/connect4.txt", "a+")
+    file = open("../files/connect4/connect4.txt", "a+")
     file.write(boardStateString(winner))
     file.write
     file.close()
