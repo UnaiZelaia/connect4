@@ -2,8 +2,9 @@
 import time
 import random
 
-animals = ["ferret", "cockatoo", "hedgehog", "raccoon", "vulture", "ostrich", "python", "peacock", "marmot",
-               "condor"]
+#animals = ["ferret", "cockatoo", "hedgehog", "raccoon", "vulture", "ostrich", "python", "peacock", "marmot",
+              # "condor"]
+animals = []
 
 # Functions for hangman
 def name():
@@ -13,10 +14,23 @@ def name():
 
 def hangmangame(playername):
 
+    a = 1
+
     print(" ")
     for i in range(1, 4):
         print("Loading the game...")
         time.sleep(1)
+
+    f = open("../files/hangman/animals.csv", "r")
+
+    while a != 0:
+        file_line = f.readline()
+        animals.append(file_line.strip())
+
+        if not file_line:
+            a = 0
+        else:
+            a = a + 1
 
     wronganswer = []
 
@@ -100,5 +114,6 @@ def hangmangame(playername):
 
     print("Thanks for playing " + str(playername) + " hope to see you here again!!!")
     print(" ")
+    f.close()
 
 
