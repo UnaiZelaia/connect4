@@ -1,3 +1,5 @@
+import datetime
+
 # functions for the connect4 game
 # This file contains all the functions necessary for the game to execute.
 # the init() function should be called in a main file for the game to start executing
@@ -11,7 +13,6 @@ col4 = [0, 0, 0, 0, 0]
 
 # List of lists that contains all of the columns
 cols = [col0, col1, col2, col3, col4]
-
 
 def updateRows():
     # This function updates the rows lists with the information from the column lists.
@@ -91,10 +92,7 @@ def selectColPlayer2():
     # This function behaves the same as the one for player 1 but for player2
     c = 1
     while c == 1:
-        try:
-            col = int(input("Player2: Select the column to drop the token: "))
-        except:
-            continue
+        col = int(input("Player2: Select the column to drop the token: "))
         if 1 <= col <= 5:
             if cols[col - 1][4] == 0:
                 return int(col)
@@ -211,19 +209,28 @@ def updateLoop():
         # The board with the new information is printed out
         printUpdateBoard()
 
+
         # And the game checks for win condition in a vertical, horizontal and diagonal way.
         # The win checkers return 1 if the win condition is not met and 0 if it is.
         g = check4Horizontal()
         if g == 0:
+            winner = player1
+            writeToFile(winner)
             break
         g = check4Vertical()
         if g == 0:
+            winner = player1
+            writeToFile(winner)
             break
         g = checkDiagonal1()
         if g == 0:
+            winner = player1
+            writeToFile(winner)
             break
         g = checkDiagonal2()
         if g == 0:
+            winner = player1
+            writeToFile(winner)
             break
         g = checkEndGame()
         if g == 0:
@@ -263,15 +270,23 @@ def updateLoop():
         # There is no need for break statements in the player 2 win checks since they are at the end of the loop.
         g = check4Horizontal()
         if g == 0:
+            winner = player2
+            writeToFile(winner)
             break
         g = check4Vertical()
         if g == 0:
+            winner = player2
+            writeToFile(winner)
             break
         g = checkDiagonal1()
         if g == 0:
+            winner = player2
+            writeToFile(winner)
             break
         g = checkDiagonal2()
         if g == 0:
+            winner = player2
+            writeToFile(winner)
             break
         g = checkEndGame()
 
@@ -297,8 +312,8 @@ def check4Horizontal():
                 # win condition structure would resolve to true, but would throw an exception in the next one
                 # because of the +1.
                 if rows[i] == 4 and rows[j] == 4:
-                    # The exception will only return something as long as the position of the loop is the
-                    # last one available.
+                    # The exception will only return 1 (win condition not met) as long as the position of the
+                    # loop is the last one available.
                     # else it will continue executing despite the exceptions.
                     return 1
                 else:
@@ -417,14 +432,85 @@ def checkEndGame():
             if count == 5:
                 fullCols += 1
                 count = 0
+            if fullCols == 5:
+                print("There are no more cells left. It's a draw.")
+                return 0
+            else:
+                return 1
 
-    if fullCols == 5:  # If all the columns are full, the game ends.
-        print("There are no more cells left. It's a draw.")
-        return 0
-    else:
-        return 1
+def writeToFile(winner):
+    file = open("../files/connect4.txt", "a+")
+    file.write(boardStateString(winner))
+    file.write
+    file.close()
 
 
+
+def boardStateString(winner):
+    # This function prints out a board with the information stored in the rows lists.
+    # If the list contains 0 in the position, the cell will be empty
+    # If it contains 1, the cell will have an X, the player 1 token.
+    # If it contains 2, the cell will have an O, the player 2 token.
+    board = ""
+
+    board += "  1  2  3  4  5\n"
+    board += " "
+    for celda in row0:
+        if celda == 0:
+            board += "|  "
+        if celda == 1:
+            board += "|X "
+        if celda == 2:
+            board += "|O "
+    board += "|\n"
+
+    board += " "
+    for celda in row1:
+        if celda == 0:
+            board += "|  "
+        if celda == 1:
+            board += "|X "
+        if celda == 2:
+            board += "|O "
+    board += "|\n"
+
+    board += " "
+    for celda in row2:
+        if celda == 0:
+            board += "|  "
+        if celda == 1:
+            board += "|X "
+        if celda == 2:
+            board += "|O "
+    board += "|\n"
+
+    board += " "
+    for celda in row3:
+        if celda == 0:
+            board += "|  "
+        if celda == 1:
+            board += "|X "
+        if celda == 2:
+            board += "|O "
+    board += "|\n"
+
+    board += " "
+    for celda in row4:
+        if celda == 0:
+            board += "|  "
+        if celda == 1:
+            board += "|X "
+        if celda == 2:
+            board += "|O "
+    board += "|\n\n\n"
+    board += "This game was played between " + player1 + " and " + player2 +".\n"
+    data = datetime.datetime.now()
+    board += "The game was played at " + data.strftime("%d-%m-%Y") + " at " + data.strftime("%H:%M") + "\n"
+    board += "The winner of the game was: " + winner
+    board += "\n============================================================================"
+    board += "\n\n"
+
+    return board
 
 
 
